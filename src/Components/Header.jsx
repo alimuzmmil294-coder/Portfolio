@@ -19,15 +19,29 @@ const Header = () => {
     { id: 4, icon: <LuWrench />, name: "Tools", paht: "/tools" },
     { id: 5, icon: <LuSquarePen />, name: "Thoughts", paht: "/thoughts" },
   ];
-  const [first, setfirst] = useState(false);
+  const [first, setfirst] = useState(null);
   return (
-    <header className="text-[#FFFFFF] p-6 border ">
-      {/* bg-[#1C1A19] */}
-      <ul className="w-fit m-auto  flex justify-center gap-5 items-center bg-green-500 px-3 py-1.5 rounded-md">
+    <header className="text-[#FFFFFF] p-6">
+      <ul className="w-fit m-auto  flex justify-center gap-10 items-center bg-[#1C1A19] px-6 py-4 rounded-2xl">
         {links.map((link, idx) => (
-          <li key={link.id} className="list-none flex flex-col items-center justify-center relative">
-            <Link to={link.paht} className="text-[20px]">{link.icon}</Link>
-            <span className="absolute top-[50%] ">{link.name}</span>
+          <li
+            onMouseEnter={() => setfirst(idx)}
+            onMouseLeave={() => setfirst(null)}
+            key={link.id}
+            className="list-none flex flex-col items-center justify-center relative"
+          >
+            <Link to={link.paht} className="text-[20px]">
+              {link.icon}
+            </Link>
+            <span
+              className={`${
+                first === idx
+                  ? "opacity-100 mt-5 visible translate-y-2"
+                  : "opacity-0 max-h-0 invisible overflow-hidden translate-y-0"
+              }  absolute top-[50%] transition-all duration-300 px-1 py-0.5 rounded-md bg-[#1C1A19] `}
+            >
+              {link.name}
+            </span>
           </li>
         ))}
       </ul>

@@ -1,1 +1,33 @@
+/* 1. Define all weights under the SAME font-family name */
+@font-face {
+  font-family: "Poppins";
+  src: url("../src/assets/Fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../src/assets/Fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../src/assets/Fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../src/assets/Fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* 2. Import Tailwind CSS v4 */
 @import "tailwindcss";
+
+/* 3. Register a single font family utility in the theme */
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+}
