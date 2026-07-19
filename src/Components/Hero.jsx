@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "animate.css";
 import MyImage from "../assets/Images/MyImage.png";
 import OrangeImage from "../assets/Images/orange.jpg";
 import GreenImage from "../assets/Images/green.png";
 import heckathonProject from '../assets/Images/heckathonProject.png'
 import CodewithHarry from '../assets/Images/codeWithHarry.png'
+import AgeCalculator from '../assets/Images/ageCalculator.png'
+import TodoList from '../assets/Images/todoList.png'
 import { FiLayers } from "react-icons/fi";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
 import { FaDribbble, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+
 const icons = [
   { id: 1, icon: <FaDribbble /> },
   { id: 2, icon: <FaTwitter /> },
@@ -15,6 +20,7 @@ const icons = [
   { id: 4, icon: <FaYoutube /> },
 ];
 const Hero = () => {
+  const [text, setText] = useState(true)
   return (
     // ====================================All Hero Section====================================
     <section className="w-full flex items-start">
@@ -40,7 +46,7 @@ const Hero = () => {
             </p>
             <ul className="flex justify-around w-[50%] m-auto text-2xl text-orange-500 ">
               {icons.map((item) => (
-                <li className="list-none">{item.icon}</li>
+                <li key={item.id} className="list-none">{item.icon}</li>
               ))}
             </ul>
           </div>
@@ -60,7 +66,7 @@ const Hero = () => {
 
 
         {/*{/*==================================== The Text below the H1============================== */}
-        <p>
+        <div>
           <p className="text-[#817979]">
             Dedicated to building seamless, engaging user interfaces. I’m a Web
             Developer specializing in transforming complex design ideas into
@@ -86,12 +92,12 @@ const Hero = () => {
               WORLDWIDE CLIENTS
             </li>
           </ul>
-        </p>
+        </div>
 
 
 
         {/*{/*==================================== The two Images ====================================*/}
-        <section className="flex w-full mt-10 h-50">
+        {/* <section className="flex w-full mt-10 h-50">
           <div className="w-[60%] m-auto h-full relative">
             <img
               className="rounded-2xl w-[90%] m-auto opacity-90 h-full"
@@ -103,9 +109,9 @@ const Hero = () => {
                 <FiLayers />
               </span>
               <p className="text-2xl">DYNAMIC ANIMATION, MOTION DESIGN</p>
-              <span className="text-3xl border w-fit absolute bottom-6 right-10 rounded-md ">
+              <Link to={} className="text-3xl border w-fit absolute bottom-6 right-10 rounded-md hover:bg-white transition-all duration-300 hover:text-orange-500 ">
                 <MdOutlineArrowRightAlt />
-              </span>
+              </Link>
             </div>
           </div>
           <div className="w-[60%] m-auto h-full relative text-gray-200">
@@ -124,11 +130,10 @@ const Hero = () => {
               </span>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* ====================================The Recent Projects====================================  */}
         <article className="border text-white my-10 py-10">
-
 
 
           {/* ====================================The reactProjects h1====================================  */}
@@ -141,7 +146,12 @@ const Hero = () => {
 
           {/* ====================================The reactProjects Cards====================================  */}
 
-          <article className="flex w-full h-37 items-center border rounded-lg overflow-hidden my-5">
+
+          {/* ====================================Card # 1====================================  */}
+          <article
+            onMouseEnter={() => setText(true)}
+            onMouseLeave={() => setText(false)}
+            className="flex w-full h-37 items-center border rounded-lg overflow-hidden my-5">
             <img
               src={heckathonProject}
               alt="Orange hackathon project preview"
@@ -151,8 +161,12 @@ const Hero = () => {
               <h3 className="text-xl font-semibold">Hackathon Project</h3>
               <p className="text-sm text-[#928888]">SaaS Framer Template</p>
             </div>
+            <span className={`${setText ? "translate-x-2" : ""}`}>Hello World!</span>
           </article>
-          <article className="flex w-full hover:bg-[#1C1A19] transition-all duration-200  h-37 items-center rounded-lg overflow-hidden my-5">
+
+
+          {/* ====================================Card # 2====================================  */}
+          <article className=" flex w-full hover:bg-[#1C1A19] transition-all duration-200  h-37 items-center rounded-lg overflow-hidden my-5">
             <img
               src={CodewithHarry}
               alt="Orange hackathon project preview"
@@ -163,9 +177,27 @@ const Hero = () => {
               <p className="text-sm text-[#928888]">SaaS Framer Template</p>
             </div>
           </article>
+
+
+
+          {/* ====================================Card # 3====================================  */}
           <article className="flex w-full h-37 items-center border rounded-lg overflow-hidden my-5">
             <img
-              src={heckathonProject}
+              src={AgeCalculator}
+              alt="Orange hackathon project preview"
+              className="h-full object-cover aspect-square"
+            />
+            <div className="flex flex-col justify-center px-6 gap-1">
+              <h3 className="text-xl font-semibold">Hackathon Project</h3>
+              <p className="text-sm text-[#928888]">SaaS Framer Template</p>
+            </div>
+          </article>
+
+
+          {/* ====================================Card # 4====================================  */}
+          <article className="flex w-full h-37 items-center border rounded-lg overflow-hidden my-5">
+            <img
+              src={TodoList}
               alt="Orange hackathon project preview"
               className="h-full object-cover aspect-square"
             />

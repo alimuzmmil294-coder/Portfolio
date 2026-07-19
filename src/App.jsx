@@ -10,7 +10,6 @@ const App = () => {
       <div className="w-[75%] border border-white min-h-screen m-auto">
         <Header />
         <Routes>
-          {/* <Route path="/" element={} /> */}
           <Route path="/projects" element={<h1>Hello World</h1>} />
           <Route path="/experience" element={<h1>Hello World</h1>} />
           <Route path="/tools" element={<h1>Hello World</h1>} />

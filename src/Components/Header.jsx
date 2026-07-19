@@ -30,18 +30,15 @@ const Header = () => {
             key={link.id}
             className="list-none flex flex-col items-center justify-center relative"
           >
-            <Link to={link.paht} className="text-[20px]">
+            <Link to={link.paht} className="text-[20px] p-3">
               {link.icon}
             </Link>
             <span
-              className={`${
-                first === idx
-                  ? "opacity-100 mt-5 visible translate-y-2"
-                  : "opacity-0 max-h-0 invisible overflow-hidden translate-y-0"
-              }  absolute top-[50%] transition-all duration-300 px-1 py-0.5 rounded-md bg-[#1C1A19] `}
-            >
-              {link.name}
-            </span>
+              className={`absolute top-[100%] left-50% transition-all duration-300 px-2 py-1 rounded-md bg-[#1C1A19] text-sm  pointer-events-none ${first === idx
+                ? "opacity-100 translate-y-2 visible"
+                : "opacity-0 translate-y-0 invisible"
+                }`}
+            >{link.name}</span>
           </li>
         ))}
       </ul>
