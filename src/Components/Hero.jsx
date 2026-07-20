@@ -10,6 +10,7 @@ import TodoList from '../assets/Images/todoList.png'
 import { FiLayers } from "react-icons/fi";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
 import { FaDribbble, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { GoArrowUpRight } from "react-icons/go";
 import { Link } from "react-router-dom";
 
 
@@ -19,8 +20,72 @@ const icons = [
   { id: 3, icon: <FaInstagram /> },
   { id: 4, icon: <FaYoutube /> },
 ];
+
+
+const cards = [
+  {
+    id: 1,
+    path: "https://code-with-harry-website-two.vercel.app/",
+    image: CodewithHarry,
+    text: "CodeWithHarry Clone",
+    description: "A responsive frontend recreation of the popular e-learning platform, built from scratch to master advanced CSS layouts, semantic HTML structures, and responsive design patterns.",
+    icon: <GoArrowUpRight />
+  },
+  {
+    id: 2,
+    path: "https://heckathon-project-six.vercel.app/",
+    image: heckathonProject,
+    text: "First Hackathon Project: React Basics",
+    description: "Developed during my first hackathon at SMIT to deeply understand and master the core fundamentals of React. Built with a focus on clean component architecture, state handling, and rapid, functional development under pressure.",
+    icon: <GoArrowUpRight />
+  },
+  {
+    id: 3,
+    path: "https://age-calculator-code-alpha-v2.vercel.app/",
+    image: AgeCalculator,
+    text: "Age Calculator Application | CodeAlpha Internship",
+    description: "Developed as a core internship project for CodeAlpha, this application was built to master the essentials of vanilla JavaScript. The project focuses on real-time date manipulation, complex logic calculation, data validation, and building a responsive interface that handles dynamic user inputs seamlessly.",
+    icon: <GoArrowUpRight />
+  },
+  {
+    id: 4,
+    path: "https://to-do-list-code-alpha-usur.vercel.app/",
+    image: TodoList,
+    text: "Interactive To-Do List (CodeAlpha Internship)",
+    description: "A responsive task management application created during my CodeAlpha internship. Built to sharpen advanced CRUD operations (Create, Read, Update, Delete) in JavaScript, implement persistent data storage, and deliver an intuitive user interface.",
+    icon: <GoArrowUpRight />
+  },
+];
+
+const ExperienceCards = [
+  {
+    id: 1,
+    path: "https://www.saylanimit.com/",
+    text: "Web Development Specialist (SMIT Training)",
+    description: "A dedicated web development student with 12 months of intensive, hands-on technical training at SMIT. Focused on mastering modern frontend and backend technologies, writing clean code, and turning complex project requirements into interactive user experiences.",
+    icon: <GoArrowUpRight />,
+    period: "July 2025 - Present"
+  },
+  {
+    id: 2,
+    path: "http://uop.edu.pk/",
+    text: "Data Science Student (University of Peshawar)",
+    description: "Advancing my technical expertise through a BS in Data Science, currently in my second semester with a 3.84 CGPA. Actively engaged in mastering data analytics, foundational statistical modeling, and computational logic to analyze complex datasets and solve analytical challenges.",
+    icon: <GoArrowUpRight />,
+    period: "Sept 2025 - Present"
+  },
+  {
+    id: 3,
+    path: "#",
+    text: "Technical Compositor (Global Printing & Composing)",
+    description: "Delivered efficient document formatting, digital typesetting, and print production management during a three-month professional engagement. Focused on mastering rapid software layouts, precise data composition, and high-quality print output operations.",
+    icon: <GoArrowUpRight />
+  },
+]
+
+
 const Hero = () => {
-  const [text, setText] = useState(true)
+  const [text, setText] = useState(null)
   return (
     // ====================================All Hero Section====================================
     <section className="w-full flex items-start">
@@ -95,45 +160,8 @@ const Hero = () => {
         </div>
 
 
-
-        {/*{/*==================================== The two Images ====================================*/}
-        {/* <section className="flex w-full mt-10 h-50">
-          <div className="w-[60%] m-auto h-full relative">
-            <img
-              className="rounded-2xl w-[90%] m-auto opacity-90 h-full"
-              src={OrangeImage}
-              alt=""
-            />
-            <div className="absolute top-0 flex flex-col justify-around h-full w-full p-6">
-              <span className="text-3xl">
-                <FiLayers />
-              </span>
-              <p className="text-2xl">DYNAMIC ANIMATION, MOTION DESIGN</p>
-              <Link to={} className="text-3xl border w-fit absolute bottom-6 right-10 rounded-md hover:bg-white transition-all duration-300 hover:text-orange-500 ">
-                <MdOutlineArrowRightAlt />
-              </Link>
-            </div>
-          </div>
-          <div className="w-[60%] m-auto h-full relative text-gray-200">
-            <img
-              className="rounded-2xl w-[90%] h-full m-auto relative opacity-90"
-              src={GreenImage}
-              alt=""
-            />
-            <div className="absolute top-0 flex flex-col justify-around h-full w-full p-6">
-              <span className="text-3xl">
-                <FiLayers />
-              </span>
-              <p className="text-2xl">FRAMER, FIGMA, WORDPRESS, REACTJS</p>
-              <span className="text-3xl border w-fit absolute bottom-1 right-10 rounded-md ">
-                <MdOutlineArrowRightAlt />
-              </span>
-            </div>
-          </div>
-        </section> */}
-
         {/* ====================================The Recent Projects====================================  */}
-        <article className="border text-white my-10 py-10">
+        <section className=" text-white my-10 py-10">
 
 
           {/* ====================================The reactProjects h1====================================  */}
@@ -145,68 +173,68 @@ const Hero = () => {
 
 
           {/* ====================================The reactProjects Cards====================================  */}
+          <section>
+            {
+              cards.map((card, idx) => (
+                <a
+                  key={card.id}
+                  href={card.path || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onMouseEnter={() => setText(idx)}
+                  onMouseLeave={() => setText(null)}
+                  className="flex w-full h-40 items-center rounded-lg overflow-hidden my-5 p-3 hover:bg-[#1C1A19] transition-all duration-200"
+
+                >
+                  <img
+                    src={card.image}
+                    alt="Orange hackathon project preview"
+                    className="h-full object-cover aspect-square rounded-lg"
+                  />
+                  <div className="flex flex-col justify-center p-6 gap-1">
+                    <h3 className="font-semibold">{card.text}</h3>
+                    <p className="text-sm text-[rgb(146,136,136)]">{card.description}</p>
+                  </div>
+                  <span className={`${idx === text ? "translate-x-1" : ""} transition-all duration-300`}>{card.icon}</span>
+                </a>
+              ))
+            }
+          </section>
 
 
-          {/* ====================================Card # 1====================================  */}
-          <article
-            onMouseEnter={() => setText(true)}
-            onMouseLeave={() => setText(false)}
-            className="flex w-full h-37 items-center border rounded-lg overflow-hidden my-5">
-            <img
-              src={heckathonProject}
-              alt="Orange hackathon project preview"
-              className="h-full object-cover aspect-square"
-            />
-            <div className="flex flex-col justify-center px-6 gap-1">
-              <h3 className="text-xl font-semibold">Hackathon Project</h3>
-              <p className="text-sm text-[#928888]">SaaS Framer Template</p>
-            </div>
-            <span className={`${setText ? "translate-x-2" : ""}`}>Hello World!</span>
-          </article>
+          {/* ====================================The Experience Section====================================  */}
+
+          <div className="flex flex-col text-7xl font-bold py-7 border  ">
+            <h1>1 Year</h1>
+            <h1 className="text-[#353334]">Experience </h1>
+          </div>
 
 
-          {/* ====================================Card # 2====================================  */}
-          <article className=" flex w-full hover:bg-[#1C1A19] transition-all duration-200  h-37 items-center rounded-lg overflow-hidden my-5">
-            <img
-              src={CodewithHarry}
-              alt="Orange hackathon project preview"
-              className="h-full object-contain aspect-square"
-            />
-            <div className="flex flex-col justify-center px-6 gap-1">
-              <h3 className="text-xl font-semibold">Hackathon Project</h3>
-              <p className="text-sm text-[#928888]">SaaS Framer Template</p>
-            </div>
-          </article>
+          {/* ====================================The Experience Card====================================  */}
+          <section>
+            {
+              ExperienceCards.map((card, idx) => (
+                <a
+                  key={card.id}
+                  href={card.path || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onMouseEnter={() => setText(idx)}
+                  onMouseLeave={() => setText(null)}
+                  className="flex w-full h-40 items-center rounded-lg overflow-hidden my-5 p-3 hover:bg-[#1C1A19] transition-all duration-200"
+                >
+                  <div className="flex flex-col justify-center p-6 gap-3 h-full">
+                    <h3 className="font-semibold">{card.text}</h3>
+                    <p className="text-sm text-[rgb(146,136,136)]">{card.description}</p>
+                    <p>2020 - 2026</p>
+                  </div>
+                  <span className={`${idx === text ? "translate-x-1" : ""} transition-all duration-300`}>{card.icon}</span>
+                </a>
+              ))
+            }
+          </section>
 
-
-
-          {/* ====================================Card # 3====================================  */}
-          <article className="flex w-full h-37 items-center border rounded-lg overflow-hidden my-5">
-            <img
-              src={AgeCalculator}
-              alt="Orange hackathon project preview"
-              className="h-full object-cover aspect-square"
-            />
-            <div className="flex flex-col justify-center px-6 gap-1">
-              <h3 className="text-xl font-semibold">Hackathon Project</h3>
-              <p className="text-sm text-[#928888]">SaaS Framer Template</p>
-            </div>
-          </article>
-
-
-          {/* ====================================Card # 4====================================  */}
-          <article className="flex w-full h-37 items-center border rounded-lg overflow-hidden my-5">
-            <img
-              src={TodoList}
-              alt="Orange hackathon project preview"
-              className="h-full object-cover aspect-square"
-            />
-            <div className="flex flex-col justify-center px-6 gap-1">
-              <h3 className="text-xl font-semibold">Hackathon Project</h3>
-              <p className="text-sm text-[#928888]">SaaS Framer Template</p>
-            </div>
-          </article>
-        </article>
+        </section>
       </article>
     </section>
   );
