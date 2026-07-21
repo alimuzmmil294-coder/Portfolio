@@ -234,6 +234,18 @@ const Hero = () => {
             }
           </section>
 
+          {/* ====================================The Tools Section====================================  */}
+
+          <div className="flex flex-col text-7xl font-bold py-7 border  ">
+            <h1>Premium</h1>
+            <h1 className="text-[#353334]">Tools </h1>
+          </div>
+          <section className="grid grid-cols-2 justify-center items-center border">
+            
+          </section>
+
+
+
         </section>
       </article>
     </section>
