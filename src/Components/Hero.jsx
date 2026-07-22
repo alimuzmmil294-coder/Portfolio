@@ -11,6 +11,12 @@ import { FiLayers } from "react-icons/fi";
 import { MdOutlineArrowRightAlt } from "react-icons/md";
 import { FaDribbble, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
+// import { IoLogoReact } from "react-icons/io5";
+// import { RiTailwindCssLine } from "react-icons/ri";
+// import { AiOutlineJavaScript } from "react-icons/ai";
+// import { VscVscode } from "react-icons/vsc";
+// import { SiPostman } from "react-icons/si";
+
 import { Link } from "react-router-dom";
 
 
@@ -195,7 +201,7 @@ const Hero = () => {
                     <h3 className="font-semibold">{card.text}</h3>
                     <p className="text-sm text-[rgb(146,136,136)]">{card.description}</p>
                   </div>
-                  <span className={`${idx === text ? "translate-x-1" : ""} transition-all duration-300`}>{card.icon}</span>
+                  <span className={`${idx === text ? "translate-x-1" : ""} text-orange-400 text-2xl transition-all duration-300`}>{card.icon}</span>
                 </a>
               ))
             }
@@ -204,7 +210,7 @@ const Hero = () => {
 
           {/* ====================================The Experience Section====================================  */}
 
-          <div className="flex flex-col text-7xl font-bold py-7 border  ">
+          <div className="flex flex-col text-7xl font-bold py-7">
             <h1>1 Year</h1>
             <h1 className="text-[#353334]">Experience </h1>
           </div>
@@ -228,7 +234,7 @@ const Hero = () => {
                     <p className="text-sm text-[rgb(146,136,136)]">{card.description}</p>
                     <p>2020 - 2026</p>
                   </div>
-                  <span className={`${idx === text ? "translate-x-1" : ""} transition-all duration-300`}>{card.icon}</span>
+                  <span className={`${idx === text ? "translate-x-1" : ""}text-orange-400 text-2xl transition-all duration-300`}>{card.icon}</span>
                 </a>
               ))
             }
@@ -240,8 +246,13 @@ const Hero = () => {
             <h1>Premium</h1>
             <h1 className="text-[#353334]">Tools </h1>
           </div>
+
+          {/* ====================================The Tools Section====================================  */}
+
           <section className="grid grid-cols-2 justify-center items-center border">
-            
+            <div className="">
+
+            </div>
           </section>
 
 
