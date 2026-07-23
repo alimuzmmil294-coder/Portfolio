@@ -19,6 +19,7 @@ import { SiPostman } from "react-icons/si";
 import { FaGithub } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
+import Contact from "./Contact";
 
 const icons = [
   { id: 1, icon: <FaDribbble /> },
@@ -43,7 +44,12 @@ const tools = [
   },
   { id: 4, icon: <VscVscode />, heading: "VS Code", text: "Code Editing" },
   { id: 5, icon: <SiPostman />, heading: "Postman", text: "API Testing" },
-  { id: 5, icon: <FaGithub />, heading: "GitHub", text: "Cloud version control" },
+  {
+    id: 5,
+    icon: <FaGithub />,
+    heading: "GitHub",
+    text: "Cloud version control",
+  },
 ];
 
 const cards = [
@@ -270,7 +276,7 @@ const Hero = () => {
             {tools.map((item, idx) => (
               <div
                 key={item.id}
-                className="flex w-full gap-5 items-center rounded-lg overflow-hidden my-5 p-3 hover:bg-[#1C1A19] transition-all duration-200"
+                className="cursor-pointer flex w-full gap-5 items-center rounded-lg overflow-hidden my-5 p-3 hover:bg-[#1C1A19] transition-all duration-200"
               >
                 <span className="text-5xl hover:text-orange-500 transition-all duration-200">
                   {item.icon}
@@ -283,6 +289,7 @@ const Hero = () => {
             ))}
           </section>
         </section>
+      <Contact />
       </article>
     </section>
   );
