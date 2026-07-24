@@ -4,24 +4,28 @@
   src: url("../src/assets/Fonts/Poppins-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Poppins";
   src: url("../src/assets/Fonts/Poppins-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Poppins";
   src: url("../src/assets/Fonts/Poppins-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Poppins";
   src: url("../src/assets/Fonts/Poppins-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
 
 /* 2. Import Tailwind CSS v4 */

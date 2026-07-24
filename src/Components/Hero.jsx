@@ -20,6 +20,7 @@ import { FaGithub } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
 import Contact from "./Contact";
+import { useInView } from "react-intersection-observer";
 
 const icons = [
   { id: 1, icon: <FaDribbble /> },
@@ -122,11 +123,21 @@ const ExperienceCards = [
 
 const Hero = () => {
   const [text, setText] = useState(null);
+
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Only trigger animation once
+    threshold: 0.2, // Trigger when 20% visible
+  });
   return (
     // ====================================All Hero Section====================================
     <section className="w-full flex items-start">
       {/* ====================================The Left side with Picture==================================== */}
-      <div className=" items-start justify-start text-center py-6 w-[40%] border border-black  min-h-screen overflow-y-auto sticky top-0 bg-[#151312] ">
+      <div
+        ref={ref}
+        className={`flex flex-col items-center justify-start text-center py-6 w-[40%] border border-black min-h-screen overflow-y-auto sticky top-0 bg-[#151312] transition-all duration-700 ease-out ${
+          inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[20px]"
+        }`}
+      >
         <div className="bg-white p-6 text-center w-[80%] rounded-2xl">
           <div className="h-125">
             <img
@@ -156,37 +167,47 @@ const Hero = () => {
       {/*==================================== The Right Side "All Content" ==============================*/}
       <article className="w-[60%] text-[#FFFFFF] p-6">
         {/*==================================== The first h1==================================== */}
-        <div className="flex flex-col text-7xl font-bold py-4 ">
-          <h1>Web</h1>
-          <h1 className="text-[#353334]">Developer </h1>
-        </div>
+        <article
+          ref={ref}
+          className={`transition-all duration-700 ${
+            inView
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-[20px]"
+          }`}
+        >
+          <div className="flex flex-col text-7xl font-bold py-4 ">
+            <h1>Web</h1>
+            <h1 className="text-[#353334]">Developer </h1>
+          </div>
 
-        {/*{/*==================================== The Text below the H1============================== */}
-        <div>
-          <p className="text-[#817979]">
-            Dedicated to building seamless, engaging user interfaces. I’m a Web
-            Developer specializing in transforming complex design ideas into
-            pixel-perfect, interactive, and beautifully crafted web experiences.
-          </p>
+          {/*{/*==================================== The Text below the H1============================== */}
+          <div>
+            <p className="text-[#817979]">
+              Dedicated to building seamless, engaging user interfaces. I’m a
+              Web Developer specializing in transforming complex design ideas
+              into pixel-perfect, interactive, and beautifully crafted web
+              experiences.
+            </p>
 
-          {/* {/*====================================The count and the text{/*==================================== */}
-          <ul className="flex justify-between  mt-10 w-[50%]">
-            <li className="list-none font-bold text-5xl">+1</li>
-            <li className="list-none font-bold text-5xl">+5</li>
-            <li className="list-none font-bold text-5xl">+0</li>
-          </ul>
-          <ul className="flex justify-between w-[50%] items-center">
-            <li className="list-none text-[#817979] text-[14px]">
-              YEARS OF EXPERIENCE
-            </li>
-            <li className="list-none text-[#817979] text-[14px]">
-              PERSONAL PROJECTS COMPLETED
-            </li>
-            <li className="list-none text-[#817979] text-[14px]">
-              WORLDWIDE CLIENTS
-            </li>
-          </ul>
-        </div>
+            {/* {/*====================================The count and the text{/*==================================== */}
+            <ul className="flex justify-between  mt-10 w-[50%]">
+              <li className="list-none font-bold text-5xl">+1</li>
+              <li className="list-none font-bold text-5xl">+5</li>
+              <li className="list-none font-bold text-5xl">+0</li>
+            </ul>
+            <ul className="flex justify-between w-[50%] items-center">
+              <li className="list-none text-[#817979] text-[14px]">
+                YEARS OF EXPERIENCE
+              </li>
+              <li className="list-none text-[#817979] text-[14px]">
+                PERSONAL PROJECTS COMPLETED
+              </li>
+              <li className="list-none text-[#817979] text-[14px]">
+                WORLDWIDE CLIENTS
+              </li>
+            </ul>
+          </div>
+        </article>
 
         {/* ====================================The Recent Projects====================================  */}
         <section className=" text-white my-10 py-10">
@@ -275,7 +296,7 @@ const Hero = () => {
           <section className="grid grid-cols-2 justify-center items-center">
             {tools.map((item, idx) => (
               <div
-                key={item.id}
+                key={item.text}
                 className="cursor-pointer flex w-full gap-5 items-center rounded-lg overflow-hidden my-5 p-3 hover:bg-[#1C1A19] transition-all duration-200"
               >
                 <span className="text-5xl hover:text-orange-500 transition-all duration-200">
@@ -289,7 +310,7 @@ const Hero = () => {
             ))}
           </section>
         </section>
-      <Contact />
+        <Contact />
       </article>
     </section>
   );

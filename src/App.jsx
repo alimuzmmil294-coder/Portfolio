@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import { Route, Routes } from "react-router-dom";
 import Hero from "./Components/Hero";
+import "animate.css";
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
           <Route path="/thoughts" element={<h1>Hello World</h1>} />
         </Routes>
         <Hero />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );
